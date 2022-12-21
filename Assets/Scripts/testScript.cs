@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class testScript : MonoBehaviour
 {
+  [SerializeField] float speed = -1f;
+  [SerializeField] float jumpPower = -1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +15,13 @@ public class testScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-	  {
-		gameObject.transform.Translate(0,3,0);
-	  }
+
+      float xMovement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+      float yMovement = Input.GetAxis("Vertical") * jumpPower * Time.deltaTime;
+      gameObject.transform.Translate(xMovement,0, 0);
+      if (Input.GetKey(KeyCode.Space))
+      {
+        //gameObject.transform.Translate(0,30f * Time.deltaTime,0);
+      }
     }
 }
