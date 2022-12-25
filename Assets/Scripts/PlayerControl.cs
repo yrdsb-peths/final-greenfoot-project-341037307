@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
   [SerializeField] public float speed = 10f;
-  [SerializeField] public float jumpPower = 10f;
+  [SerializeField] public float jumpPower = 20f;
 
   private float jumpTimeCounter;
-  private float jumpTimeMax = 2f;
+  private float jumpTimeMax = 0.4f;
   private bool isJumping;
 
   private bool isGrounded = false;
@@ -27,7 +27,8 @@ public class PlayerControl : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    float xMovement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+    float xMovement = Input.GetAxis("Horizontal") * speed;
+    rb.velocity = new Vector2(xMovement, rb.velocity.y);
 
     // Flip character
     if (xMovement > 0)
@@ -35,10 +36,8 @@ public class PlayerControl : MonoBehaviour
       transform.eulerAngles = new Vector3(0,0,0);
     } 
     else if (xMovement < 0){
-      //transform.eulerAngles = new Vector3(0,180,0);
+      transform.eulerAngles = new Vector3(0,180,0);
     }
-
-    gameObject.transform.Translate(xMovement,0, 0);
 
     // Check if grounded
     isGrounded = Physics2D.OverlapCircle(feetPosition.position, checkRadius, whatIsGround);
@@ -46,7 +45,7 @@ public class PlayerControl : MonoBehaviour
 
     if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
     {
-      rb.velocity = Vector2.up * jumpPower;
+      rb.velocity = new Vector2 (rb.velocity.x, jumpPower);
       isJumping = true;
       jumpTimeCounter = jumpTimeMax;
     }
@@ -55,7 +54,7 @@ public class PlayerControl : MonoBehaviour
     if (Input.GetKey(KeyCode.Space) && isJumping == true){
       if (jumpTimeCounter > 0)
       {
-        rb.velocity = Vector2.up * jumpPower;
+        rb.velocity = new Vector2 (rb.velocity.x, jumpPower);
         jumpTimeCounter -= Time.deltaTime;
       }
       else
