@@ -14,13 +14,15 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
 
     // Parry Variables
-     public bool isParrying;
-     public bool parryTriggered;
-     private bool canParry = true;
-     private float parryDuration = 0.5f;
-     private float parryCD = 2f;
-     private bool parryReset;
-     
+    public bool isParrying;
+    public bool parryTriggered;
+    private bool canParry = true;
+    private float parryDuration = 0.5f;
+    private float parryCD = 2f;
+    private bool parryReset;
+    // Stunned
+    public bool Stunned; 
+
     // Update is called once per frame
     void Update()
     {
@@ -34,7 +36,7 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("Parry Triggered");
         }
         // Control Variables
-        if (isParrying)
+        if (isParrying || Stunned)
         {
             return;
         }

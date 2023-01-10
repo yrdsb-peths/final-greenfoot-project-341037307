@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
   {
 
     // Control Variables
-    if (isDashing)
+    if (isDashing || gameObject.GetComponent<PlayerCombat>().Stunned)
     {
       return;
     }

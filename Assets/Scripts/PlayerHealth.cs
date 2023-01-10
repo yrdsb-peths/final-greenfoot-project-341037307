@@ -12,9 +12,19 @@ public class PlayerHealth : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    public Transform respawnPoint;
+
+    private int deathTime = 3;
+
     // Update is called once per frame
     void Update()
     {
+        // if died
+        if (health <= 0)
+        {
+            Die();
+        }
+        
         foreach (Image img in hearts)
         {
             img.sprite = emptyHeart;
@@ -25,18 +35,28 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
     public void TakeDamage()
     {
         health -= 1;
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
     void Die()
     {
         Debug.Log("You have Died");
+
+        
+        transform.position = respawnPoint.position; 
         health = 5;
+    }
+
+    IEnumerator playDeath() // doesnt work btw
+    {
+        gameObject.GetComponent<PlayerCombat>().Stunned = true;
+        yield return new WaitForSeconds(deathTime);
+        gameObject.GetComponent<PlayerCombat>().Stunned = false;
     }
 }
