@@ -19,16 +19,20 @@ public class PlayerCombat : MonoBehaviour
      private bool canParry = true;
      private float parryDuration = 0.5f;
      private float parryCD = 2f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+     private bool parryReset;
+     
     // Update is called once per frame
     void Update()
     {
+        
+        // Parry reset
+        if (isParrying && parryTriggered)
+        {
+            parryTriggered = false;
+            parryReset = true;
+            canParry = true;
+            Debug.Log("Parry Triggered");
+        }
         // Control Variables
         if (isParrying)
         {
@@ -46,14 +50,11 @@ public class PlayerCombat : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F) && canParry)
         {
+
             Debug.Log("Parry");
             StartCoroutine(Parry());
         }
-        if (isParrying && parryTriggered)
-        {
-            parryTriggered = false;
-            Debug.Log("Parry Triggered");
-        }
+        
     }
 
     void Attack()
@@ -86,9 +87,14 @@ public class PlayerCombat : MonoBehaviour
         // Parry Effect
         canParry = false;
         isParrying = true;
+        parryReset = false;
         yield return new WaitForSeconds(parryDuration);
         isParrying = false;
         yield return new WaitForSeconds(parryCD);
-        canParry = true;
+        if (!parryReset)
+        {
+            canParry = true;
+        }
+
     }
 }

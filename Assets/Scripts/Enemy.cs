@@ -26,8 +26,18 @@ public class Enemy : MonoBehaviour
 
         if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime)
         {
-            Debug.Log("We took damage");
-            player.GetComponent<PlayerHealth>().TakeDamage();
+            PlayerCombat PlrCombatScript = player.GetComponent<PlayerCombat>();
+            //Debug.Log("We took damage");
+            if (PlrCombatScript.isParrying)
+            {
+                Debug.Log("Attack Parried");
+                PlrCombatScript.parryTriggered = true;
+            }
+            else
+            {
+                Debug.Log("Player Damaged");
+                player.GetComponent<PlayerHealth>().TakeDamage();
+            }
             nextAttackTime = Time.time + 1/damageRate;
         }
     }
