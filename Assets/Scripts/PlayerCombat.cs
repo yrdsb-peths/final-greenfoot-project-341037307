@@ -59,6 +59,9 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    /**
+    * Start players attack
+    */
     void Attack()
     {
         // Play attack
@@ -74,14 +77,18 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
-
+    /**
+    * Draw attack radius in unity view
+    */
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
+    /**
+    *Gives parry frames to player
+    **/
     IEnumerator Parry()
     {
         // Play Parry

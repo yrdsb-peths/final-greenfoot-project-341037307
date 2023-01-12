@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
   private float dashingTime = 0.2f;
   private float dashingCD = 2f;
   
+  public Animator animator;
 
   // Start is called before the first frame update
   void Start()
@@ -42,18 +43,25 @@ public class PlayerControl : MonoBehaviour
     }
 
     // Get X movement and apply it
-    float xMovement = Input.GetAxis("Horizontal") * speed;
+    float xMovement = Input.GetAxisRaw("Horizontal") * speed;
     rb.velocity = new Vector2(xMovement, rb.velocity.y);
+    
 
     // Flip character
     if (xMovement > 0)
     {
       transform.eulerAngles = new Vector3(0,0,0);
       facing = 1;
+      animator.SetFloat("Speed", 1);
     } 
     else if (xMovement < 0){
       transform.eulerAngles = new Vector3(0,180,0);
       facing = -1;
+      animator.SetFloat("Speed", 1);
+    }
+    else
+    {
+      animator.SetFloat("Speed", 0);
     }
 
     // Jumping

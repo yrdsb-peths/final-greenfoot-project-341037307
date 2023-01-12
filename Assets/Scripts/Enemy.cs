@@ -19,11 +19,9 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-
+    //Update is called every frame
     void Update()
     {
-        
-
         if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime)
         {
             PlayerCombat PlrCombatScript = player.GetComponent<PlayerCombat>();
@@ -42,6 +40,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /**
+    * Causes the enemy entiy to take damage
+    * @param damage the amount of damage taken int
+    */
+    
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -51,6 +54,10 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
+    /**
+    *ON death event. Breaks collider
+    */
 
     void Die()
     {

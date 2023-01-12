@@ -14,8 +14,6 @@ public class PlayerHealth : MonoBehaviour
 
     public Transform respawnPoint;
 
-    private int deathTime = 3;
-
     // Update is called once per frame
     void Update()
     {
@@ -34,7 +32,10 @@ public class PlayerHealth : MonoBehaviour
             hearts[i].sprite = fullHeart;
         }
     }
-
+    /**
+    * Causes the enemy entiy to take damage
+    * @param damage the amount of damage taken int
+    */
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -43,7 +44,9 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= 1;
     }
-
+    /**
+    *ON death event. Respawn player
+    */
     void Die()
     {
         Debug.Log("You have Died");
@@ -52,11 +55,12 @@ public class PlayerHealth : MonoBehaviour
         transform.position = respawnPoint.position; 
         health = 5;
     }
-
+    /**
     IEnumerator playDeath() // doesnt work btw
     {
         gameObject.GetComponent<PlayerCombat>().Stunned = true;
         yield return new WaitForSeconds(deathTime);
         gameObject.GetComponent<PlayerCombat>().Stunned = false;
     }
+    */
 }

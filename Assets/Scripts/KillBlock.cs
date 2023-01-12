@@ -5,7 +5,6 @@ using UnityEngine;
 public class KillBlock : MonoBehaviour
 {
 
-
     public void OnTriggerEnter2D (Collider2D other)
     {
         Debug.Log("Trigger entered");
