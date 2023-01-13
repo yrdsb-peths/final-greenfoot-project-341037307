@@ -45,23 +45,17 @@ public class PlayerControl : MonoBehaviour
     // Get X movement and apply it
     float xMovement = Input.GetAxisRaw("Horizontal") * speed;
     rb.velocity = new Vector2(xMovement, rb.velocity.y);
-    
+    animator.SetFloat("Speed", Mathf.Abs(xMovement));
 
     // Flip character
     if (xMovement > 0)
     {
       transform.eulerAngles = new Vector3(0,0,0);
       facing = 1;
-      animator.SetFloat("Speed", 1);
     } 
     else if (xMovement < 0){
       transform.eulerAngles = new Vector3(0,180,0);
       facing = -1;
-      animator.SetFloat("Speed", 1);
-    }
-    else
-    {
-      animator.SetFloat("Speed", 0);
     }
 
     // Jumping
@@ -74,6 +68,12 @@ public class PlayerControl : MonoBehaviour
       rb.velocity = new Vector2 (rb.velocity.x, jumpPower);
       isJumping = true;
       jumpTimeCounter = jumpTimeMax;
+
+      animator.SetBool("IsJumping", true);
+    }
+    else if (isGrounded == true && isJumping == false)
+    {
+      animator.SetBool("IsJumping", false);
     }
 
     if (Input.GetKey(KeyCode.Space) && isJumping == true){
@@ -102,16 +102,25 @@ public class PlayerControl : MonoBehaviour
   // Causes player to dash based on coroutuine
   private IEnumerator Dash()
   {
+    animator.SetBool("IsDashing", true);
     canDash = false;
     isDashing = true;
     float originalGravity  = rb.gravityScale;
     rb.gravityScale = 0f;
+    
+
     rb.velocity = new Vector2(transform.localScale.x * dashingPower * facing, 0f);
 
     yield return new WaitForSeconds(dashingTime);
     rb.gravityScale = originalGravity;
     isDashing = false;
+    animator.SetBool("IsDashing", false);
     yield return new WaitForSeconds(dashingCD);
     canDash = true;
   }
+  public void OnLanding()
+  {
+    animator.SetBool("IsJumping", false);
+  }
 }
+

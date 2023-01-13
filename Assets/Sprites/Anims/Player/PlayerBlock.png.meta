@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec1aecf5d4dbe7e4083cace528f49a72
+guid: 1dab21240ce7b474f90066c09c5e4d0c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,10 +117,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: PlayerBlock_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 19
         y: 0
         width: 32
         height: 32
@@ -131,17 +131,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ad2febf0a13b8e4d827d96bc8842b6f
-      internalID: 592061401
+      spriteID: df6e600b272b08b459f0e4ec44b67039
+      internalID: -223406666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: PlayerBlock_1
       rect:
         serializedVersion: 2
-        x: 78
+        x: 83
         y: 0
         width: 32
         height: 32
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a493f24548329e740af642a8d8aae58b
-      internalID: 276222171
+      spriteID: fce0eb11b5299e543a6571dadba9d15c
+      internalID: -1435050974
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_1: 276222171
-      Idle_0: 592061401
+      PlayerBlock_0: -223406666
+      PlayerBlock_1: -1435050974
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

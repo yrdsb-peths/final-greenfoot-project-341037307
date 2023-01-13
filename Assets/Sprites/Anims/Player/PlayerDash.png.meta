@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec1aecf5d4dbe7e4083cace528f49a72
+guid: 38ef2abf59abb714e91c525c87cb64cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: PlayerDash_0
       rect:
         serializedVersion: 2
         x: 14
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ad2febf0a13b8e4d827d96bc8842b6f
-      internalID: 592061401
+      spriteID: 889b4224811562c47a49e7e05ca59dca
+      internalID: 1728672494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: PlayerDash_1
       rect:
         serializedVersion: 2
         x: 78
@@ -152,8 +152,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a493f24548329e740af642a8d8aae58b
-      internalID: 276222171
+      spriteID: 58da0c29bfef1524b9c6638dfcb758aa
+      internalID: 546133402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDash_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74156a5639130234b829cd9b0ee61a6c
+      internalID: 843487591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDash_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14894dc92e379d54c9f08101d0a6c2ad
+      internalID: 248296190
       vertices: []
       indices: 
       edges: []
@@ -169,8 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_1: 276222171
-      Idle_0: 592061401
+      PlayerDash_3: 248296190
+      PlayerDash_2: 843487591
+      PlayerDash_1: 546133402
+      PlayerDash_0: 1728672494
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec1aecf5d4dbe7e4083cace528f49a72
+guid: e8fcb30e1c614a843909590bcad00d73
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,11 +117,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: PlayerJump_0
       rect:
         serializedVersion: 2
         x: 14
-        y: 0
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -131,18 +131,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ad2febf0a13b8e4d827d96bc8842b6f
-      internalID: 592061401
+      spriteID: 03712aa5d2c8b7345b0dd6ac2d757a18
+      internalID: 1968811470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: PlayerJump_1
       rect:
         serializedVersion: 2
         x: 78
-        y: 0
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -152,8 +152,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a493f24548329e740af642a8d8aae58b
-      internalID: 276222171
+      spriteID: 09af182803b31a74a9489dae591e33e2
+      internalID: -973986137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJump_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be41f595d402ec540af6a420707bbbf7
+      internalID: -106012587
       vertices: []
       indices: 
       edges: []
@@ -169,8 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_1: 276222171
-      Idle_0: 592061401
+      PlayerJump_0: 1968811470
+      PlayerJump_2: -106012587
+      PlayerJump_1: -973986137
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -13,6 +13,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 0.8f; // amount of attacks per second
     float nextAttackTime = 0f;
 
+    private float attackDuration = 0.5f;
+
     // Parry Variables
     public bool isParrying;
     public bool parryTriggered;
@@ -22,6 +24,7 @@ public class PlayerCombat : MonoBehaviour
     private bool parryReset;
     // Stunned
     public bool Stunned; 
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -46,7 +49,7 @@ public class PlayerCombat : MonoBehaviour
             if (Time.time >= nextAttackTime)
             {
                 Debug.Log("M1");
-                Attack();
+                StartCoroutine(Attack());
                 nextAttackTime = Time.time + 1/attackRate;
             }
         }
@@ -62,13 +65,12 @@ public class PlayerCombat : MonoBehaviour
     /**
     * Start players attack
     */
-    void Attack()
+    IEnumerator Attack()
     {
         // Play attack
-
+        animator.SetBool("IsAttacking", true);
         // Detect attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
 
         // do dmg
         foreach(Collider2D enemy in hitEnemies)
@@ -76,6 +78,8 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("We hit " + enemy.name);
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
+        yield return new WaitForSeconds(attackDuration);
+        animator.SetBool("IsAttacking", false);
     }
     /**
     * Draw attack radius in unity view
@@ -92,13 +96,14 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator Parry()
     {
         // Play Parry
-
+        animator.SetBool("IsParrying", true);
         // Parry Effect
         canParry = false;
         isParrying = true;
         parryReset = false;
         yield return new WaitForSeconds(parryDuration);
         isParrying = false;
+        animator.SetBool("IsParrying", false);
         yield return new WaitForSeconds(parryCD);
         if (!parryReset)
         {
