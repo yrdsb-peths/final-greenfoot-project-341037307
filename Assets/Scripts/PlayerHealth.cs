@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour
 
     public Transform respawnPoint;
 
+    public Animator animator;
+    private float hitDuration = 0.5f;
+
     // Update is called once per frame
     void Update()
     {
@@ -39,10 +42,19 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        StartCoroutine(hitAnimation());
     }
     public void TakeDamage()
     {
         health -= 1;
+        StartCoroutine(hitAnimation());
+    }
+
+    IEnumerator hitAnimation()
+    {
+        animator.SetBool("Damaged", true);
+        yield return new WaitForSeconds(hitDuration);
+        animator.SetBool("Damaged", false);
     }
     /**
     *ON death event. Respawn player

@@ -10,7 +10,7 @@ public class KillBlock : MonoBehaviour
         Debug.Log("Trigger entered");
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().health = 0;
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(5);
         }
     }
 }

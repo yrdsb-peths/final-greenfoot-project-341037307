@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     private float damageRate = 1;
     private float nextAttackTime;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -64,5 +65,6 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy ded");
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+        Destroy(gameObject);
     }
 }
