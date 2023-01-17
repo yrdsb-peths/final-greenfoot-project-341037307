@@ -15,7 +15,7 @@ public class MeleeEnemyAI : MonoBehaviour
     public GameObject hotZone;
     public GameObject triggerArea;
     public LayerMask targetLayers;
-    public float attackRange;
+    public float attackRange = 5;
     public int attackDamage = 1;
     public Transform attackPoint;
     #endregion

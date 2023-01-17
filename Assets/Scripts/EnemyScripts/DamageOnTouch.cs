@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class DamageOnTouch : MonoBehaviour
 {
+    public int damage = 1;
     public GameObject player;
     public Collider2D enemyCollider;
     public Collider2D playerCollider;
 
     private float damageRate = 1;
     private float nextAttackTime;
+
     void Update()
     {
         if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime)
@@ -24,7 +26,7 @@ public class DamageOnTouch : MonoBehaviour
             else
             {
                 Debug.Log("Player Damaged");
-                player.GetComponent<PlayerHealth>().TakeDamage();
+                player.GetComponent<PlayerHealth>().TakeDamage(damage);
             }
             nextAttackTime = Time.time + 1/damageRate;
         }
