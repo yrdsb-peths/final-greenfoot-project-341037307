@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public static int fullHP = 5;
     public int health = fullHP;
     
+    public bool Cleansed;
+
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;

@@ -11,6 +11,8 @@ public class NPC : MonoBehaviour
     private int index;
 
     public GameObject contButton;
+    public bool isShrine;
+    public GameObject Player;
 
     public float wordSpeed;
     public bool playerClose;
@@ -20,6 +22,10 @@ public class NPC : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerClose)
         {
+            if (isShrine)
+            {
+                Player.GetComponent<PlayerHealth>().Cleansed = true;
+            }
             if (dialoguePanel.activeInHierarchy)
             {
                 broken = true;

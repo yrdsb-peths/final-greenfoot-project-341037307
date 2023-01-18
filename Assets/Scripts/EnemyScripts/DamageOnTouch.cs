@@ -8,7 +8,6 @@ public class DamageOnTouch : MonoBehaviour
     public GameObject player;
     public Collider2D enemyCollider;
     public Collider2D playerCollider;
-
     private float damageRate = 1;
     private float nextAttackTime;
 
