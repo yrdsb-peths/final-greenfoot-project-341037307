@@ -71,9 +71,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("You have Died");
 
         
-        transform.position = respawnPoint.position; 
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.name);
+        SceneManager.LoadScene("Over");
         health = 5;
     }
     /**

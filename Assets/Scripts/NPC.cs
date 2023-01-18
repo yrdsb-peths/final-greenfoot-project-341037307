@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour
 {
@@ -22,10 +23,6 @@ public class NPC : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerClose)
         {
-            if (isShrine)
-            {
-                Player.GetComponent<PlayerHealth>().Cleansed = true;
-            }
             if (dialoguePanel.activeInHierarchy)
             {
                 broken = true;
@@ -63,12 +60,15 @@ public class NPC : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
+        if (isShrine)
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void NextLine()
     {
         contButton.SetActive(false);
-
         if (index < dialogue.Length - 1)
         {
             index++;
