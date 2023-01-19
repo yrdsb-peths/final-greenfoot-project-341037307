@@ -62,6 +62,7 @@ public class NPC : MonoBehaviour
         }
         if (isShrine)
         {
+            yield return new WaitForSeconds(2);
             SceneManager.LoadScene("Menu");
         }
     }
