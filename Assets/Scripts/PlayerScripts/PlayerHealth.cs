@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     /**
-    * Causes the enemy entiy to take damage
+    * Causes the enemy entiy to take damage. If no param is given, take one damage.
     * @param damage the amount of damage taken int
     */
     public void TakeDamage(int damage)
@@ -52,11 +52,17 @@ public class PlayerHealth : MonoBehaviour
         health -= 1;
         StartCoroutine(hitAnimation());
     }
+
+    /**
+    * Heals the player to full HP
+    **/
     public void HealPlayer()
     {
         health = fullHP;
     }
-
+    /**
+    * Play hit duration for specificed time.
+    **/
     IEnumerator hitAnimation()
     {
         animator.SetBool("Damaged", true);

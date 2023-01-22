@@ -42,6 +42,7 @@ public class NPC : MonoBehaviour
         }
     }
 
+    // Reset Text and closes the panel
     public void zeroText()
     {
         dialogueText.text = "";
@@ -49,6 +50,7 @@ public class NPC : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
+    // types the line at float wordSpeed. If the user is speaking to the keeper of hearts, change scene to menu
     IEnumerator Typing()
     {
         foreach(char letter in dialogue[index].ToCharArray())
@@ -67,6 +69,7 @@ public class NPC : MonoBehaviour
         }
     }
 
+    // if there is dialogue, start typing the next one. Else zero the text.
     public void NextLine()
     {
         contButton.SetActive(false);

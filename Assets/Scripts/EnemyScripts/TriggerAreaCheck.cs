@@ -10,6 +10,7 @@ public class TriggerAreaCheck : MonoBehaviour
         enemyParent = GetComponentInParent<MeleeEnemyAI>();
     }
 
+    // when collider enters, check if it is player. If it is, set hotzone to active and aggro NPC.
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))

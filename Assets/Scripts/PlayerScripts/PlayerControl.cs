@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
   private float dashingPower = 16f;
   private float dashingTime = 0.2f;
   private float dashingCD = 2f;
-  
+
   public Animator animator;
 
   // Start is called before the first frame update
@@ -71,7 +71,7 @@ public class PlayerControl : MonoBehaviour
 
       animator.SetBool("IsJumping", true);
     }
-    else if (isGrounded == true && isJumping == false)
+    if (isGrounded == true && isJumping == false)
     {
       animator.SetBool("IsJumping", false);
     }
@@ -92,7 +92,7 @@ public class PlayerControl : MonoBehaviour
       isJumping = false;
     }
     // Call dash
-    if (Input.GetKeyDown(KeyCode.Q) && canDash)
+    if (Input.GetKeyDown(KeyCode.Q) && canDash && !isJumping)
     {
       StartCoroutine(Dash());
     }
@@ -117,10 +117,6 @@ public class PlayerControl : MonoBehaviour
     animator.SetBool("IsDashing", false);
     yield return new WaitForSeconds(dashingCD);
     canDash = true;
-  }
-  public void OnLanding()
-  {
-    animator.SetBool("IsJumping", false);
   }
 }
 

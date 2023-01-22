@@ -9,16 +9,16 @@ public class Gate : MonoBehaviour
     void Update()
     {
         bool alive = false;
-        foreach(GameObject enemy in KillReqs)
+        foreach(GameObject enemy in KillReqs) // loops thru all enemys in array
         {
             if (enemy != null)
             {
                 alive = true;
             }
         }
-        if (alive == false)
+        if (alive == false) // if all enemies are dead, open the gate
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); 
         }
     }
 }

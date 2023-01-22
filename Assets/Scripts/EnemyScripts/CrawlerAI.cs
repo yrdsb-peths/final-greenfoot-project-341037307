@@ -16,6 +16,9 @@ public class CrawlerAI : MonoBehaviour
         Move();
     }
 
+    /**
+    * Move crawler to next waypoint Position
+    **/
     void Move()
     {
         distToPoint = Vector2.Distance(transform.position, wayPoints[nextWayPoint].transform.position);
@@ -28,6 +31,9 @@ public class CrawlerAI : MonoBehaviour
         }
     }
 
+    /**
+    *Rotates the crawler depending on the rotation of the waypoint
+    **/
     void TakeTurn()
     {
         Vector3 currentRotation = transform.eulerAngles;
@@ -36,6 +42,9 @@ public class CrawlerAI : MonoBehaviour
         ChooseNextWayPoint();
     }
 
+    /**
+    * Select the next waypoint.
+    **/
     void ChooseNextWayPoint()
     {
         nextWayPoint++;

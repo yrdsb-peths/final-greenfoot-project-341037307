@@ -140,6 +140,9 @@ public class MeleeEnemyAI : MonoBehaviour
         Flip();
     }
 
+    /**
+    * Rotates the sprite 180 degrees if their target is behind them
+    **/
     public void Flip()
     {
         Vector3 rotation = transform.eulerAngles;
@@ -155,6 +158,9 @@ public class MeleeEnemyAI : MonoBehaviour
         transform.eulerAngles = rotation;
     }
 
+    /**
+    * Checks if player is within hitbox. If they are not parrying, they take one damage.
+    **/
     public void dealDamage()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayers);
@@ -175,6 +181,7 @@ public class MeleeEnemyAI : MonoBehaviour
         }
     }
 
+    
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)

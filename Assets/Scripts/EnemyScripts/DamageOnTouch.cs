@@ -13,16 +13,16 @@ public class DamageOnTouch : MonoBehaviour
 
     void Update()
     {
-        if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime)
+        if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime) // if enemy collider is touching player collider and attack is not on Cooldown.
         {
-            PlayerCombat PlrCombatScript = player.GetComponent<PlayerCombat>();
+            PlayerCombat PlrCombatScript = player.GetComponent<PlayerCombat>(); 
             //Debug.Log("We took damage");
-            if (PlrCombatScript.isParrying)
+            if (PlrCombatScript.isParrying) // if parrying, ignore
             {
                 Debug.Log("Attack Parried");
                 PlrCombatScript.parryTriggered = true;
             }
-            else
+            else // if not parrying damage
             {
                 Debug.Log("Player Damaged");
                 player.GetComponent<PlayerHealth>().TakeDamage(damage);

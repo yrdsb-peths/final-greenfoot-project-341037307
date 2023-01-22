@@ -12,10 +12,10 @@ public class HealBlock : MonoBehaviour
     private float nextAttackTime;
     void Update()
     {
-        if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime)
+        if (enemyCollider.IsTouching(playerCollider) && Time.time >= nextAttackTime) // on touch, heal player
         {
             player.GetComponent<PlayerHealth>().HealPlayer();
-            nextAttackTime = Time.time + 1/damageRate;
+            nextAttackTime = Time.time + 1/damageRate; // Cooldown
         }
     }
 }
